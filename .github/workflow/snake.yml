@@ -1,4 +1,4 @@
-name: Generate Contribution Snake
+name: Generate Big Contribution Snake
 
 on:
   schedule:
@@ -19,16 +19,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate snake animation
+      - name: Generate Big Snake
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
+
           outputs: |
             dist/github-contribution-grid-snake.svg?palette=github
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
             dist/github-contribution-grid-snake.gif?color_snake=blue
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish animation
         uses: crazy-max/ghaction-github-pages@v4
